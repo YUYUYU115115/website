@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//ブログ一覧画面表示
+Route::get('/', 'PostController@showList')->name('posts');
 
 Auth::routes();
 
