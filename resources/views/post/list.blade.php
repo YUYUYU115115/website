@@ -9,14 +9,17 @@
               <th>記事番号</th>
               <th>日付</th>
               <th>タイトル</th>
+              <th>内容</th>
               <th></th>
           </tr>
+          @foreach($posts as $post)
           <tr>
-              <td>1</td>
-              <td>2022/8/10</td>
-              <td>テスト</td>
-              <td></td>
+              <td>{{ $post->id }}</td>
+              <td>{{ $post->updated_at }}</td>
+              <td>{{ $post->title }}</td>
+              <td>{{ $post->content }}</td>
           </tr>
+          @endforeach
       </table>
   </div>
 </div>
