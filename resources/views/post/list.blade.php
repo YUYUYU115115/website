@@ -7,17 +7,15 @@
       <table class="table table-striped">
           <tr>
               <th>記事番号</th>
-              <th>日付</th>
               <th>タイトル</th>
-              <th>内容</th>
+              <th>日付</th>
               <th></th>
           </tr>
           @foreach($posts as $post)
           <tr>
-              <td>{{ $post->id }}</td>
-              <td>{{ $post->updated_at }}</td>
-              <td>{{ $post->title }}</td>
-              <td>{{ $post->content }}</td>
+              <td>{{ $post->id  }}</td>
+              <td><a href="/post/{{ $post->id }}">{{ $post->title  }}</a></td>
+              <td>{{ $post->updated_at  }}</td>
           </tr>
           @endforeach
       </table>
