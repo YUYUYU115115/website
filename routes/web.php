@@ -17,3 +17,6 @@ Route::get('/', 'PostController@showList')->name('posts');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//ブログ詳細画面表示
+Route::get('/post/{id}', 'PostController@showDetail')->name('show');
