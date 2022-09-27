@@ -30,4 +30,35 @@ class PostController extends Controller
 
         return view('post.detail', ['post' => $post]);
     }
+    /**
+     * ブログ登録を表示する
+     * @return view
+     */
+    public function showCreate() {
+        return view('post.form');
+    }
+    
+    /**
+     * ブログを登録する
+     * 
+     * @return view
+     */
+    public function exeStore(PostRequest $request) 
+    {
+        // ブログのデータを受け取る
+        $inputs = $request->all();
+
+        \DB::beginTransaction();
+        try {
+            // ブログを登録
+            Post::create($inputs);
+            \DB::commit();
+        } catch(\Throwable $e) {
+            \DB::rollback();
+            abort(500);
+        }
+
+        \Session::flash('err_msg', 'ブログを登録しました');
+        return redirect(route('posts'));
+    }
 }
