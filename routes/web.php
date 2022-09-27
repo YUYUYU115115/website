@@ -17,6 +17,11 @@ Route::get('/', 'PostController@showList')->name('posts');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//ブログ登録画面表示
+Route::get('/post/create', 'PostController@showCreate')->name('create');
 
+//ブログ登録
+Route::post('/post/store', 'PostController@exeStore')->name('store');
 //ブログ詳細画面表示
 Route::get('/post/{id}', 'PostController@showDetail')->name('show');
+
